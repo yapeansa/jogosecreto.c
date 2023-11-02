@@ -34,7 +34,6 @@ int main()
         {
             printf("Parabéns. Você acertou!\n");
             printf("Jogue de novo, você é um bom jogador!\n");
-            printf("Fim de jogo! Você acertou em %d tantativa(s).\n", tentativas);
             ganhou = true;
             break;
         }
@@ -60,6 +59,7 @@ int main()
         tentativas += 1;
     }
 
+    printf("Fim de jogo! Você acertou em %d tentativa(s).\n", tentativas);
     printf("Você terminou o jogo com %.1f pontos!\n", pontos);
 
     return 0;
