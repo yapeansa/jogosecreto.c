@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#define NUMERO_DE_TENTATIVAS 5
+#include <time.h>
+#define NUMERO_DE_TENTATIVAS 6
 
 int main()
 {
@@ -10,7 +11,10 @@ int main()
     printf("* Bem-vindo ao nosso jogo de adivinhação *\n");
     printf("******************************************\n");
 
-    int numerosecreto = 42;
+    int segundos = time(0);
+    srand(segundos);
+    int numerosecreto = rand() % 100;
+
     int chute;
     bool ganhou = false;
     int tentativas = 1;
@@ -53,7 +57,7 @@ int main()
                 printf("Seu chute foi menor do que o número secreto.\n");
             }
         }
-        if (tentativas == 5)
+        if (tentativas == NUMERO_DE_TENTATIVAS)
         {
             break;
         }
