@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #define NUMERO_DE_TENTATIVAS 5
 
 int main()
@@ -10,8 +11,9 @@ int main()
 
     int numerosecreto = 42;
     int chute;
-    int ganhou = 0;
+    bool ganhou = false;
     int tentativas = 1;
+    double pontos = 1000;
 
     while (!ganhou)
     {
@@ -32,12 +34,14 @@ int main()
         {
             printf("Parabéns. Você acertou!\n");
             printf("Jogue de novo, você é um bom jogador!\n");
-            printf("Fim de jogo!\n");
-            ganhou = 1;
+            printf("Fim de jogo! Você acertou em %d tantativa(s).\n", tentativas);
+            ganhou = true;
             break;
         }
         else
         {
+            double pontosperdidos = (double)(chute - numerosecreto) / 2;
+            pontos -= pontosperdidos;
             printf("Você errou!\n");
             printf("Mas não desanime, tente novamente!\n");
             if (maior)
@@ -55,6 +59,8 @@ int main()
         }
         tentativas += 1;
     }
+
+    printf("Você terminou o jogo com %.1f pontos!\n", pontos);
 
     return 0;
 }
