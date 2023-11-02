@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #define NUMERO_DE_TENTATIVAS 5
 
 int main()
@@ -39,7 +40,7 @@ int main()
         }
         else
         {
-            double pontosperdidos = (double)(chute - numerosecreto) / 2;
+            double pontosperdidos = abs(chute - numerosecreto) / (double)2;
             pontos -= pontosperdidos;
             printf("Você errou!\n");
             printf("Mas não desanime, tente novamente!\n");
